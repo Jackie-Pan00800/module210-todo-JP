@@ -14,11 +14,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check if index.html exists
+      - name: Verify index.html exists
         run: |
-          if [ -f "./src/frontend/index.html" ]; then
-            echo "index.html existe."
+          if [ -f "src/frontend/index.html" ]; then
+            echo "::notice title=Check Passed::index.html existe"
           else
-            echo "index.html manquant!"
+            echo "::error title=Check Failed::index.html manquant"
             exit 1
           fi
