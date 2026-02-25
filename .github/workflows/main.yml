@@ -1,0 +1,24 @@
+name: verification de index.html
+
+on:
+  push:
+    branches:
+    - main
+    - release/*
+
+jobs:
+  check-index:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check if index.html exists
+        run: |
+          if [ -f "index.html" ]; then
+            echo "index.html existe."
+          else
+            echo "index.html manquant!"
+            exit 1
+          fi
