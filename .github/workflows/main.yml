@@ -16,7 +16,7 @@ jobs:
 
       - name: Check if index.html exists
         run: |
-          if [ -f "index.html" ]; then
+          if [ -f "./src/frontend/index.html" ]; then
             echo "index.html existe."
           else
             echo "index.html manquant!"
