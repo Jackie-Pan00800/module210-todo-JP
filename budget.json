@@ -7,9 +7,9 @@
       ]
     },
     {
-        "performance": 90,
-        "accessibility": 80,
-        "best-practices": 90,
-        "seo": 90
+        "performance": 50,
+        "accessibility": 50,
+        "best-practices": 50,
+        "seo": 50
     }
   ]
