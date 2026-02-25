@@ -54,23 +54,23 @@ jobs:
           github_id_token: ${{ steps.idtoken.outputs.result }}
           ###### End of Repository/Build Configurations ######
   lighthouse_ci_job:
-  if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
-  needs: build_and_deploy_job
-  runs-on: ubuntu-latest
-  name: Lighthouse CI Job
-  steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: true
-        lfs: false
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    needs: build_and_deploy_job
+    runs-on: ubuntu-latest
+    name: Lighthouse CI Job
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+          lfs: false
 
-    - name: Run Lighthouse CI
-      uses: treosh/lighthouse-ci-action@v12
-      with:
-        urls: |
-          https://gray-sand-02bfa8603.4.azurestaticapps.net/
-        uploadArtifacts: true
-        temporaryPublicStorage: true
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            https://gray-sand-02bfa8603.4.azurestaticapps.net/
+          uploadArtifacts: true
+          temporaryPublicStorage: true
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
