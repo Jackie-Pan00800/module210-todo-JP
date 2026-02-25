@@ -69,6 +69,7 @@ jobs:
         with:
           urls: |
             https://gray-sand-02bfa8603.4.azurestaticapps.net/
+          budgetPath: ./budget.json
           uploadArtifacts: true
           temporaryPublicStorage: true
 
