@@ -69,9 +69,9 @@ jobs:
         with:
           urls: |
             https://gray-sand-02bfa8603.4.azurestaticapps.net/
-          budgetPath: ./lighthouserc.json
           uploadArtifacts: true
           temporaryPublicStorage: true
+          configPath: lighthouserc.json
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
